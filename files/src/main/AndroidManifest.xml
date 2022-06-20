@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  package="io.github.nullptrx.files">
+
+
+  <!-- Shizuku requires API 23. -->
+  <uses-sdk tools:overrideLibrary="rikka.shizuku.aidl,rikka.shizuku.api,rikka.shizuku.shared" />
+
+  <application>
+
+    <provider
+      android:name=".app.AppProvider"
+      android:authorities="${applicationId}.files.app_provider"
+      android:exported="false" />
+
+    <provider
+      android:name=".file.FileProvider"
+      android:authorities="${applicationId}.files.file_provider"
+      android:exported="false"
+      android:grantUriPermissions="true" />
+  </application>
+
+</manifest>
