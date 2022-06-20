@@ -74,7 +74,6 @@ object LibSuFileServiceLauncher {
                 // val intent = Intent(application, LibSuFileService::class.java)
                 val connection = object : ServiceConnection {
                   override fun onServiceConnected(name: ComponentName, service: IBinder) {
-                    System.err.println("--- onServiceConnected")
                     val serviceInterface = IRemoteFileService.Stub.asInterface(service)
                     continuation.resume(serviceInterface)
                   }
