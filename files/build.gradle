@@ -1,7 +1,58 @@
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.vanniktech:gradle-maven-publish-plugin:0.20.0'
+    }
+}
+
 plugins {
+    id 'com.vanniktech.maven.publish.base'
+    id 'maven-publish'
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.plugin.parcelize'
+}
+
+publishing {
+    repositories {
+        maven {
+            allowInsecureProtocol = true
+            url = uri("${rootProject.projectDir}/maven")
+        }
+    }
+}
+
+mavenPublishing {
+    // available options:
+    //   - JavaLibrary
+    //   - GradlePlugin
+    //   - AndroidLibrary (deprecated)
+    //   - AndroidSingleVariantLibrary (requires AGP 7.1.1)
+    //   - AndroidMultiVariantLibrary (requires AGP 7.1.1)
+    //   - KotlinJvm
+    //   - KotlinJs
+    //   - KotlinMultiplatform
+    // the first parameter configures the javadoc jar, available options:
+    //   - None
+    //   - Empty
+    //   - Javadoc
+    //   - Dokka("dokkaHtml") - the parameter is the name of the Dokka task
+    // second one is for whether to publish sources, optional, defaults to true (not supported for KotlinMultiplatform(
+    // AndroidLibrary has a third parameter for which variant to publish, defaults to "release"
+    // configure(new JavaLibrary(new JavadocJar.Javadoc(), true))
+
+    // signAllPublications()
+    // pomFromGradleProperties()
+    // configure(new AndroidMultiVariantLibrary())
+
+    group = 'io.github.nullptrx'
+    archivesBaseName = 'files'
+    version = '1.0.0'
+    configure(new AndroidSingleVariantLibrary())
 }
 
 android {
@@ -12,6 +63,12 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        def pkgId = "io.github.nullptrx.files.example"
+        buildConfigField 'String', 'PKG_ID', "\"$pkgId\""
+        buildConfigField 'String', 'FILE_PROVIDIER_AUTHORITY', "\"${pkgId}.files.file_provider\""
+        resValue 'string', 'app_provider_authority', pkgId + '.files.app_provider'
+        resValue 'string', 'file_provider_authority', pkgId + '.files.file_provider'
     }
 
     buildTypes {
@@ -37,19 +94,19 @@ android {
         }
     }
 
-    sourceSets {
-        main {
-            java {
-                srcDirs += ['src/main/libsu/core/java', 'src/main/libsu/service/java']
-            }
-            assets {
-                srcDirs += ['src/main/libsu/service/assets']
-            }
-            aidl {
-                srcDirs += ['src/main/libsu/service/aidl']
-            }
-        }
-    }
+    // sourceSets {
+    //     main {
+    //         java {
+    //             srcDirs += ['src/main/libsu/core/java', 'src/main/libsu/service/java']
+    //         }
+    //         assets {
+    //             srcDirs += ['src/main/libsu/service/assets']
+    //         }
+    //         aidl {
+    //             srcDirs += ['src/main/libsu/service/aidl']
+    //         }
+    //     }
+    // }
 }
 
 dependencies {
@@ -75,7 +132,7 @@ dependencies {
     // The core module that provides APIs to a shell
     // api "com.github.topjohnwu.libsu:core:$libsuVersion"
     // Optional: APIs for creating root services. Depends on ":core"
-    // api "com.github.topjohnwu.libsu:service:$libsuVersion"
+    api "com.github.topjohnwu.libsu:service:$libsuVersion"
     // Optional: Provides remote file system support
     // api "com.github.topjohnwu.libsu:nio:$libsuVersion"
     api 'dev.rikka.shizuku:api:12.0.0'
@@ -121,3 +178,4 @@ dependencies {
     // Also a dependency of jCIFS-NG and Junrar.
     api 'org.slf4j:slf4j-android:1.7.36'
 }
+

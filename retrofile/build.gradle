@@ -1,5 +1,29 @@
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+
 plugins {
+    id 'com.vanniktech.maven.publish.base'
+    id 'maven-publish'
     id 'com.android.library'
+}
+
+publishing {
+    repositories {
+        maven {
+            allowInsecureProtocol = true
+            url = uri("${rootProject.projectDir}/maven")
+        }
+    }
+}
+
+mavenPublishing {
+    // signAllPublications()
+    // pomFromGradleProperties()
+    // configure(new AndroidMultiVariantLibrary())
+
+    group = 'io.github.nullptrx'
+    archivesBaseName = 'retrofile'
+    version = '1.0.0'
+    configure(new AndroidSingleVariantLibrary())
 }
 
 android {

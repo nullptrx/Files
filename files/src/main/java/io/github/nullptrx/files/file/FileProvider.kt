@@ -14,7 +14,7 @@ import android.provider.MediaStore
 import android.provider.OpenableColumns
 import android.system.ErrnoException
 import android.system.OsConstants
-import io.github.nullptrx.files.app.application
+import io.github.nullptrx.files.BuildConfig
 import io.github.nullptrx.files.app.storageManager
 import io.github.nullptrx.files.compat.ProxyFileDescriptorCallbackCompat
 import io.github.nullptrx.files.compat.openProxyFileDescriptorCompat
@@ -26,6 +26,8 @@ import io.github.nullptrx.files.provider.common.channel.isForceable
 import io.github.nullptrx.files.provider.common.path.getLastModifiedTime
 import io.github.nullptrx.files.provider.common.path.newByteChannel
 import io.github.nullptrx.files.provider.common.path.size
+import io.github.nullptrx.files.provider.document.documentUri
+import io.github.nullptrx.files.provider.document.isDocumentPath
 import io.github.nullptrx.files.provider.linux.isLinuxPath
 import io.github.nullptrx.files.provider.linux.syscall.SyscallException
 import java8.nio.channels.SeekableByteChannel
@@ -366,17 +368,17 @@ class FileProvider : ContentProvider() {
 val Path.fileProviderUri: Uri
   get() {
     // Try avoid going through FUSE two times, which is bad for media playback.
-    // if (isDocumentPath) {
-    //   try {
-    //     return documentUri
-    //   } catch (e: IOException) {
-    //     e.printStackTrace()
-    //   }
-    // }
+    if (isDocumentPath) {
+      try {
+        return documentUri
+      } catch (e: IOException) {
+        e.printStackTrace()
+      }
+    }
     val uriPath = Uri.encode(toUri().toString())
     return Uri.Builder()
       .scheme(ContentResolver.SCHEME_CONTENT)
-      .authority(application.packageName + ".files.file_provider")
+      .authority(BuildConfig.FILE_PROVIDIER_AUTHORITY)
       .path(uriPath)
       .build()
   }

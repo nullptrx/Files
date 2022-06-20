@@ -3,6 +3,7 @@ package io.github.nullptrx.files.provider.root
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
+import io.github.nullptrx.files.BuildConfig
 import io.github.nullptrx.files.FileSystemProviders
 import io.github.nullptrx.files.provider.remote.RemoteFileService
 import io.github.nullptrx.files.provider.remote.RemoteInterface
@@ -38,7 +39,7 @@ object RootFileService : RemoteFileService(
 
   fun run() {
     Log.i(LOG_TAG, "Creating package context")
-    rootContext = createPackageContext("io.github.nullptrx.files.example")
+    rootContext = createPackageContext(BuildConfig.PKG_ID)
     // rootContext = createPackageContext("")
     Log.i(LOG_TAG, "Installing file system providers")
     FileSystemProviders.install()

@@ -11,6 +11,13 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        // maven {
+        //     allowInsecureProtocol true
+        //     url 'http://localhost:8081/repository/m2/'
+        // }
+        maven {
+            url uri("${rootProject.projectDir}/maven")
+        }
     }
 }
 rootProject.name = "Files"

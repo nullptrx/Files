@@ -11,12 +11,12 @@
 
     <provider
       android:name=".app.AppProvider"
-      android:authorities="${applicationId}.files.app_provider"
+      android:authorities="@string/app_provider_authority"
       android:exported="false" />
 
     <provider
       android:name=".file.FileProvider"
-      android:authorities="${applicationId}.files.file_provider"
+      android:authorities="@string/file_provider_authority"
       android:exported="false"
       android:grantUriPermissions="true" />
   </application>
