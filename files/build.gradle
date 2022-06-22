@@ -64,8 +64,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
 
-        // def pkgId = "io.github.nullptrx.files.example"
-        def pkgId = "com.tera.file.manager"
+        def pkgId = "io.github.nullptrx.files.example"
         buildConfigField 'String', 'PKG_ID', "\"$pkgId\""
         buildConfigField 'String', 'FILE_PROVIDIER_AUTHORITY', "\"${pkgId}.files.file_provider\""
         resValue 'string', 'app_provider_authority', pkgId + '.files.app_provider'

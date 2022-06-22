@@ -7,8 +7,45 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/abc.xml" value="0.128" />
+        <entry key="app/src/main/res/drawable/alarm_icon_white_24dp.xml" value="0.1275" />
+        <entry key="app/src/main/res/drawable/arrow_end_icon_white_24dp.xml" value="0.128" />
+        <entry key="app/src/main/res/drawable/badge_background_18dp.xml" value="0.1765" />
+        <entry key="app/src/main/res/drawable/breadcrumb_item_foreground.xml" value="0.128" />
+        <entry key="app/src/main/res/drawable/checkable_badge_icon_18dp.xml" value="0.1765" />
+        <entry key="app/src/main/res/drawable/close_icon_control_normal_24dp.xml" value="0.128" />
+        <entry key="app/src/main/res/drawable/device_icon_white_24dp.xml" value="0.1275" />
+        <entry key="app/src/main/res/drawable/directory_icon_white_24dp.xml" value="0.1275" />
+        <entry key="app/src/main/res/drawable/file_apk_icon.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/file_archive_icon.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/file_audio_icon.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/file_calendar_icon.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/file_certificate_icon.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/file_contact_icon.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/file_directory_icon.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/file_document_icon.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/file_email_icon.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/file_excel_icon.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/file_image_icon.xml" value="0.159" />
+        <entry key="app/src/main/res/drawable/menu_icon_control_normal_24dp.xml" value="0.128" />
+        <entry key="app/src/main/res/drawable/more_vertical_icon_white_24dp.xml" value="0.1765" />
+        <entry key="app/src/main/res/drawable/notification_icon.xml" value="0.1765" />
+        <entry key="app/src/main/res/drawable/sd_card_icon_white_24dp.xml" value="0.1275" />
+        <entry key="app/src/main/res/drawable/selectable_item_background_oval.xml" value="0.1765" />
+        <entry key="app/src/main/res/drawable/symbolic_link_badge_icon_18dp.xml" value="0.1765" />
+        <entry key="app/src/main/res/layout/breadcrumb_item.xml" value="0.42592592592592593" />
+        <entry key="app/src/main/res/layout/edit_device_storage_dialog.xml" value="0.21481481481481482" />
+        <entry key="app/src/main/res/layout/file_item.xml" value="0.3640625" />
+        <entry key="app/src/main/res/layout/file_list_fragment.xml" value="0.2578125" />
+        <entry key="app/src/main/res/layout/file_list_fragment_app_bar_include.xml" value="0.42592592592592593" />
+        <entry key="app/src/main/res/layout/file_list_fragment_bottom_bar_include.xml" value="0.42592592592592593" />
+        <entry key="app/src/main/res/layout/file_list_fragment_content_include.xml" value="0.42592592592592593" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/menu/file_list_breadcrumb.xml" value="0.42592592592592593" />
         <entry key="files/src/main/res/drawable/directory.xml" value="0.1755" />
+        <entry key="files/src/main/res/drawable/error_badge_icon_18dp.xml" value="0.1765" />
         <entry key="files/src/main/res/drawable/notification_icon.xml" value="0.1755" />
+        <entry key="files/src/main/res/drawable/sd_card_icon_white_24dp.xml" value="0.1275" />
       </map>
     </option>
   </component>

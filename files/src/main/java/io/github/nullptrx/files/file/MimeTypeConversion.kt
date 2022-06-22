@@ -1,6 +1,5 @@
 package io.github.nullptrx.files.file
 
-
 import android.webkit.MimeTypeMap
 import io.github.nullptrx.files.compat.getMimeTypeFromExtensionCompat
 import io.github.nullptrx.files.provider.common.posix.PosixFileType

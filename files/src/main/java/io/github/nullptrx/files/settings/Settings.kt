@@ -7,11 +7,6 @@ import java8.nio.file.Path
 import java8.nio.file.Paths
 
 object Settings {
-  // val STORAGES: SettingLiveData<List<Storage>> =
-  //   ParcelValueSettingLiveData(
-  //     R.string.pref_key_storages,
-  //     listOf(FileSystemRoot(null, true), PrimaryStorageVolume(null, true))
-  //   )
 
   val ROOT_STRATEGY: SettingLiveData<RootStrategy> =
     EnumSettingLiveData(
@@ -30,4 +25,5 @@ object Settings {
       R.string.pref_key_archive_file_name_encoding,
       R.string.pref_default_value_archive_file_name_encoding
     )
+
 }

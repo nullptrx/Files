@@ -13,9 +13,6 @@ import java.io.InterruptedIOException
 object Syscalls {
   init {
     System.loadLibrary("syscalls")
-    val securityGetenforce = SeLinux.security_getenforce()
-    val isSelinuxEnabled = SeLinux.is_selinux_enabled()
-    println()
   }
 
   @Throws(SyscallException::class)

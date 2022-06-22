@@ -3,7 +3,13 @@
   <style name="Base.Theme.Files" parent="Theme.Material3.DayNight.NoActionBar">
     <!-- Customize your light theme here. -->
     <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!--<item name="colorAppBarSurface">?colorSurface</item>-->
+    <item name="colorAppBarSurface">@color/white</item>
   </style>
 
   <style name="Theme.Files" parent="Base.Theme.Files" />
+
+  <style name="TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Small">
+    <item name="android:textSize" tools:ignore="SpUsage">12dp</item>
+  </style>
 </resources>

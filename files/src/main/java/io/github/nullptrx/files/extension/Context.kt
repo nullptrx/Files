@@ -6,9 +6,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Looper
 import android.widget.Toast
+import androidx.annotation.PluralsRes
 import androidx.core.content.ContextCompat
 import io.github.nullptrx.files.R
 import java.util.concurrent.Executor
+
+fun Context.checkSelfPermissionCompat(permission: String): Int =
+  ContextCompat.checkSelfPermission(this, permission)
 
 val Context.mainExecutorCompat: Executor
   get() = ContextCompat.getMainExecutor(this)
@@ -36,3 +40,13 @@ fun Context.startActivitySafe(intent: Intent, options: Bundle? = null) {
     showToast(R.string.activity_not_found)
   }
 }
+
+
+fun Context.getQuantityString(@PluralsRes id: Int, quantity: Int): String =
+  resources.getQuantityString(id, quantity)
+
+fun Context.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any?): String =
+  resources.getQuantityString(id, quantity, *formatArgs)
+
+fun Context.getQuantityText(@PluralsRes id: Int, quantity: Int): CharSequence =
+  resources.getQuantityText(id, quantity)

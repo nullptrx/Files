@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <io.github.nullptrx.files.example.widget.CoordinatorScrollingFrameLayout
+    android:id="@+id/contentLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+      android:id="@+id/progress"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:visibility="gone" />
+
+    <TextView
+      android:id="@+id/errorText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:drawablePadding="8dp"
+      android:gravity="center_horizontal"
+      android:paddingTop="12dp"
+      android:paddingBottom="32dp"
+      android:textAppearance="?textAppearanceListItem"
+      android:visibility="gone" />
+
+    <TextView
+      android:id="@+id/emptyView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:drawablePadding="8dp"
+      android:gravity="center_horizontal"
+      android:paddingTop="12dp"
+      android:paddingBottom="32dp"
+      android:textAppearance="?textAppearanceListItem"
+      android:visibility="gone" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+      android:id="@+id/swipeRefreshLayout"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+      <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fitsSystemWindows="true"
+        android:paddingBottom="88dp"
+        tools:listitem="@layout/file_item" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+  </io.github.nullptrx.files.example.widget.CoordinatorScrollingFrameLayout>
+</merge>

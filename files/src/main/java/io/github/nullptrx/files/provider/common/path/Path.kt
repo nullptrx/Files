@@ -1,6 +1,8 @@
 package io.github.nullptrx.files.provider.common.path
 
 
+import io.github.nullptrx.files.file.MimeType
+import io.github.nullptrx.files.provider.archive.isArchivePath
 import io.github.nullptrx.files.provider.common.DelegateInputStream
 import io.github.nullptrx.files.provider.common.DelegateOutputStream
 import io.github.nullptrx.files.provider.common.posix.PosixFileAttributeView
@@ -9,6 +11,7 @@ import io.github.nullptrx.files.provider.common.posix.PosixFileModeBit
 import io.github.nullptrx.files.provider.common.protobuf.ByteString
 import io.github.nullptrx.files.provider.common.protobuf.ByteStringListPath
 import io.github.nullptrx.files.provider.common.protobuf.ByteStringPath
+import io.github.nullptrx.files.provider.linux.isLinuxPath
 import java8.nio.channels.SeekableByteChannel
 import java8.nio.file.AccessMode
 import java8.nio.file.CopyOption

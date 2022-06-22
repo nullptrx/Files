@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <string name="pref_key_storages">key_storages</string>
+  <string name="pref_key_standard_directory_settings">key_standard_directories</string>
+  <string name="pref_key_bookmark_directories">key_bookmark_directories</string>
+  <string name="pref_key_file_list_sort_options">key_file_list_sort_options</string>
+</resources>

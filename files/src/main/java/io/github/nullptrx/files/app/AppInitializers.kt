@@ -1,21 +1,16 @@
 package io.github.nullptrx.files.app
 
-import android.os.Build
 import android.webkit.WebView
 import com.jakewharton.threetenabp.AndroidThreeTen
 import io.github.nullptrx.files.BuildConfig
 import io.github.nullptrx.files.FileSystemProviders
 import io.github.nullptrx.files.hiddenapi.HiddenApi
-import io.github.nullptrx.files.notification.fileJobNotificationTemplate
-import io.github.nullptrx.files.notification.ftpServerServiceNotificationTemplate
 import io.github.nullptrx.files.settings.Settings
-import io.github.nullptrx.files.storage.StorageVolumeListLiveData
 
 val appInitializers = listOf(
   ::disableHiddenApiChecks, ::initializeThreeTen,
   ::initializeWebViewDebugging,
   ::initializeFileSystemProviders, ::initializeLiveDataObjects,
-  ::createNotificationChannels
 )
 
 
@@ -52,18 +47,7 @@ private fun initializeFileSystemProviders() {
 
 private fun initializeLiveDataObjects() {
   // Force initialization of LiveData objects so that it won't happen on a background thread.
-  StorageVolumeListLiveData.value
+  // StorageVolumeListLiveData.value
   Settings.FILE_LIST_DEFAULT_DIRECTORY.value
 }
 
-private fun createNotificationChannels() {
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-    notificationManager.createNotificationChannels(
-      listOf(
-        backgroundActivityStartNotificationTemplate.channelTemplate,
-        fileJobNotificationTemplate.channelTemplate,
-        ftpServerServiceNotificationTemplate.channelTemplate
-      ).map { it.create(application) }
-    )
-  }
-}

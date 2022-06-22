@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <!-- app:statusBarBackground is broken when scrolling. -->
+  <com.google.android.material.appbar.CoordinatorAppBarLayout
+    android:id="@+id/appBarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?colorAppBarSurface"
+    android:theme="?actionBarTheme"
+    app:liftOnScroll="true"
+    app:liftOnScrollTargetViewId="@id/recyclerView">
+
+    <FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_scrollFlags="@integer/file_list_toolbar_scroll_flags">
+
+      <io.github.nullptrx.files.example.widget.CrossfadeSubtitleToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:paddingStart="8dp"
+        android:paddingEnd="10dp"
+        app:navigationIcon="@drawable/menu_icon_control_normal_24dp"
+        app:popupTheme="?actionBarPopupTheme"
+        app:subtitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Small" />
+
+      <io.github.nullptrx.files.example.widget.OverlayToolbar
+        android:id="@+id/overlayToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="?colorAppBarSurface"
+        android:paddingStart="8dp"
+        android:paddingEnd="10dp"
+        android:visibility="gone"
+        app:navigationIcon="@drawable/close_icon_control_normal_24dp"
+        app:popupTheme="?actionBarPopupTheme" />
+    </FrameLayout>
+
+    <io.github.nullptrx.files.example.widget.BreadcrumbLayout
+      android:id="@+id/breadcrumbLayout"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingStart="4dp"
+      android:paddingEnd="4dp" />
+  </com.google.android.material.appbar.CoordinatorAppBarLayout>
+</merge>

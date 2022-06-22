@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:fitsSystemWindows="true">
+
+  <io.github.nullptrx.files.example.widget.PersistentBarLayout
+    android:id="@+id/persistentBarLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:fitsSystemWindows="true">
+
+      <include layout="@layout/file_list_fragment_app_bar_include" />
+
+      <include layout="@layout/file_list_fragment_content_include" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <include layout="@layout/file_list_fragment_bottom_bar_include" />
+
+  </io.github.nullptrx.files.example.widget.PersistentBarLayout>
+
+
+</FrameLayout>
