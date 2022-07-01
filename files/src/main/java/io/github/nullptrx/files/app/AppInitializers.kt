@@ -6,6 +6,7 @@ import io.github.nullptrx.files.BuildConfig
 import io.github.nullptrx.files.FileSystemProviders
 import io.github.nullptrx.files.hiddenapi.HiddenApi
 import io.github.nullptrx.files.settings.Settings
+import io.github.nullptrx.files.storage.StorageVolumeListLiveData
 
 val appInitializers = listOf(
   ::disableHiddenApiChecks, ::initializeThreeTen,
@@ -47,7 +48,7 @@ private fun initializeFileSystemProviders() {
 
 private fun initializeLiveDataObjects() {
   // Force initialization of LiveData objects so that it won't happen on a background thread.
-  // StorageVolumeListLiveData.value
+  StorageVolumeListLiveData.value
   Settings.FILE_LIST_DEFAULT_DIRECTORY.value
 }
 

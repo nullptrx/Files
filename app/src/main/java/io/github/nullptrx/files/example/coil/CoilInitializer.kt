@@ -6,7 +6,7 @@ import coil.ImageLoader
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 import coil.decode.SvgDecoder
-import io.github.nullptrx.files.app.application
+import io.github.nullptrx.files.example.app.application
 
 fun initializeCoil() {
   Coil.setImageLoader(

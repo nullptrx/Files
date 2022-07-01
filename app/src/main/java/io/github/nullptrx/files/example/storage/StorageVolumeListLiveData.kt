@@ -3,9 +3,9 @@ package io.github.nullptrx.files.example.storage
 import android.content.*
 import android.os.storage.StorageVolume
 import androidx.lifecycle.LiveData
-import io.github.nullptrx.files.app.application
-import io.github.nullptrx.files.app.storageManager
 import io.github.nullptrx.files.compat.storageVolumesCompat
+import io.github.nullptrx.files.example.app.application
+import io.github.nullptrx.files.example.app.storageManager
 
 object StorageVolumeListLiveData : LiveData<List<StorageVolume>>() {
   init {

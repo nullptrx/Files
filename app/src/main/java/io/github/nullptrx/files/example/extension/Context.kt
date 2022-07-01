@@ -2,10 +2,13 @@ package io.github.nullptrx.files.example.extension
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.ContextWrapper
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
+import android.os.Bundle
 import android.os.Looper
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -16,7 +19,8 @@ import androidx.annotation.*
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.TintTypedArray
 import androidx.core.content.ContextCompat
-import io.github.nullptrx.files.extension.mainExecutorCompat
+import io.github.nullptrx.files.R
+import java.util.concurrent.Executor
 import kotlin.OptIn
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
@@ -40,22 +44,6 @@ fun <T> Context.getSystemServiceCompat(serviceClass: Class<T>): T =
 
 val Context.layoutInflater: LayoutInflater
   get() = LayoutInflater.from(this)
-
-fun Context.showToast(textRes: Int, duration: Int = Toast.LENGTH_SHORT) {
-  if (Looper.myLooper() != Looper.getMainLooper()) {
-    mainExecutorCompat.execute { showToast(textRes, duration) }
-    return
-  }
-  Toast.makeText(this, textRes, duration).show()
-}
-
-fun Context.showToast(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
-  if (Looper.myLooper() != Looper.getMainLooper()) {
-    mainExecutorCompat.execute { showToast(text, duration) }
-    return
-  }
-  Toast.makeText(this, text, duration).show()
-}
 
 fun Context.getInterpolator(@InterpolatorRes id: Int): Interpolator =
   AnimationUtils.loadInterpolator(this, id)
@@ -105,4 +93,42 @@ inline fun <R> TintTypedArray.use(block: (TintTypedArray) -> R): R {
 }
 
 
+fun Context.checkSelfPermissionCompat(permission: String): Int =
+  ContextCompat.checkSelfPermission(this, permission)
 
+val Context.mainExecutorCompat: Executor
+  get() = ContextCompat.getMainExecutor(this)
+
+fun Context.showToast(textRes: Int, duration: Int = Toast.LENGTH_SHORT) {
+  if (Looper.myLooper() != Looper.getMainLooper()) {
+    mainExecutorCompat.execute { showToast(textRes, duration) }
+    return
+  }
+  Toast.makeText(this, textRes, duration).show()
+}
+
+fun Context.showToast(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
+  if (Looper.myLooper() != Looper.getMainLooper()) {
+    mainExecutorCompat.execute { showToast(text, duration) }
+    return
+  }
+  Toast.makeText(this, text, duration).show()
+}
+
+fun Context.startActivitySafe(intent: Intent, options: Bundle? = null) {
+  try {
+    startActivity(intent, options)
+  } catch (e: ActivityNotFoundException) {
+    showToast(R.string.activity_not_found)
+  }
+}
+
+
+fun Context.getQuantityString(@PluralsRes id: Int, quantity: Int): String =
+  resources.getQuantityString(id, quantity)
+
+fun Context.getQuantityString(@PluralsRes id: Int, quantity: Int, vararg formatArgs: Any?): String =
+  resources.getQuantityString(id, quantity, *formatArgs)
+
+fun Context.getQuantityText(@PluralsRes id: Int, quantity: Int): CharSequence =
+  resources.getQuantityText(id, quantity)

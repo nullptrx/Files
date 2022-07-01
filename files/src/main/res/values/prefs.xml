@@ -2,7 +2,7 @@
 <resources>
 
   <string name="pref_key_root_strategy">key_root_strategy</string>
-  <string name="pref_default_value_root_strategy">1</string>
+  <string name="pref_default_value_root_strategy">0</string>
   <string-array name="pref_entry_values_root_strategy">
     <item>0</item>
     <item>1</item>

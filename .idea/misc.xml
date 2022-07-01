@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ASMIdeaPluginConfiguration">
-    <asm skipDebug="true" skipFrames="true" skipCode="false" expandFrames="false" />
+    <asm skipDebug="false" skipFrames="false" skipCode="false" expandFrames="false" />
     <groovy codeStyle="LEGACY" />
   </component>
   <component name="DesignSurface">
@@ -37,9 +37,9 @@
         <entry key="app/src/main/res/layout/edit_device_storage_dialog.xml" value="0.21481481481481482" />
         <entry key="app/src/main/res/layout/file_item.xml" value="0.3640625" />
         <entry key="app/src/main/res/layout/file_list_fragment.xml" value="0.2578125" />
-        <entry key="app/src/main/res/layout/file_list_fragment_app_bar_include.xml" value="0.42592592592592593" />
+        <entry key="app/src/main/res/layout/file_list_fragment_app_bar_include.xml" value="0.2956521739130435" />
         <entry key="app/src/main/res/layout/file_list_fragment_bottom_bar_include.xml" value="0.42592592592592593" />
-        <entry key="app/src/main/res/layout/file_list_fragment_content_include.xml" value="0.42592592592592593" />
+        <entry key="app/src/main/res/layout/file_list_fragment_content_include.xml" value="0.15434782608695652" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.19791666666666666" />
         <entry key="app/src/main/res/menu/file_list_breadcrumb.xml" value="0.42592592592592593" />
         <entry key="files/src/main/res/drawable/directory.xml" value="0.1755" />

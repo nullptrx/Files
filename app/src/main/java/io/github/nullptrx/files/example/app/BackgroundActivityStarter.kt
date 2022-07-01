@@ -8,9 +8,8 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ProcessLifecycleOwner
-import io.github.nullptrx.files.app.notificationManager
 import io.github.nullptrx.files.example.R
-import io.github.nullptrx.files.extension.startActivitySafe
+import io.github.nullptrx.files.example.extension.startActivitySafe
 import io.github.nullptrx.files.util.NotificationChannelTemplate
 import io.github.nullptrx.files.util.NotificationTemplate
 

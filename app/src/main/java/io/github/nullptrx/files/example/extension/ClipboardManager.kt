@@ -1,11 +1,10 @@
 package io.github.nullptrx.files.example.extension
 
+import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
-import io.github.nullptrx.files.app.application
 import io.github.nullptrx.files.example.R
-
-import android.content.ClipData
+import io.github.nullptrx.files.example.app.application
 import kotlin.reflect.KClass
 
 fun ClipData.firstOrNull(): ClipData.Item? = if (itemCount > 0) getItemAt(0) else null

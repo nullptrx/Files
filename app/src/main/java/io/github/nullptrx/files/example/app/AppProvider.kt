@@ -1,4 +1,4 @@
-package io.github.nullptrx.files.app
+package io.github.nullptrx.files.example.app
 
 import android.app.Application
 import android.content.ContentProvider
@@ -6,8 +6,22 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.os.Build
+import android.os.storage.StorageManager
+import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 
-internal lateinit var application: Application private set
+lateinit var application: Application private set
+
+val notificationManager: NotificationManagerCompat by lazy {
+  NotificationManagerCompat.from(application)
+}
+
+val storageManager: StorageManager by lazy {
+  ContextCompat.getSystemService(
+    application,
+    StorageManager::class.java
+  )!!
+}
 
 val applicationVersionCode: Long
   get() {
@@ -24,7 +38,7 @@ class AppProvider : ContentProvider() {
 
   override fun onCreate(): Boolean {
     application = context as Application
-    appInitializers.forEach { it() }
+    // appInitializers.forEach { it() }
     return true
   }
 

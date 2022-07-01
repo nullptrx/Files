@@ -7,8 +7,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import io.github.nullptrx.files.extension.checkSelfPermissionCompat
-import io.github.nullptrx.files.extension.getQuantityString
 
 fun Fragment.showToast(textRes: Int, duration: Int = Toast.LENGTH_SHORT) =
   requireContext().showToast(textRes, duration)

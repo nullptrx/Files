@@ -21,8 +21,8 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.appbar.AppBarLayout
-import io.github.nullptrx.files.app.application
 import io.github.nullptrx.files.example.R
+import io.github.nullptrx.files.example.app.application
 import io.github.nullptrx.files.example.databinding.FileListFragmentAppBarIncludeBinding
 import io.github.nullptrx.files.example.databinding.FileListFragmentBinding
 import io.github.nullptrx.files.example.databinding.FileListFragmentBottomBarIncludeBinding
@@ -32,7 +32,6 @@ import io.github.nullptrx.files.example.extension.*
 import io.github.nullptrx.files.example.ui.filelist.adapter.FileListAdapter
 import io.github.nullptrx.files.example.util.*
 import io.github.nullptrx.files.example.widget.*
-import io.github.nullptrx.files.extension.checkSelfPermissionCompat
 import io.github.nullptrx.files.extension.toUserFriendlyString
 import io.github.nullptrx.files.extension.valueCompat
 import io.github.nullptrx.files.file.FileItem
@@ -117,7 +116,7 @@ class FileListFragment : Fragment(), ShowRequestStoragePermissionRationaleDialog
       }
     )
     // binding.appBarLayout.syncBackgroundElevationTo(binding.overlayToolbar)
-    binding.recyclerView.bindAppBarElevation(binding.appBarLayout)
+    // binding.recyclerView.bindAppBarElevation(binding.appBarLayout)
 
     binding.recyclerView.layoutManager = GridLayoutManager(activity, /* TODO */ 1)
     adapter = FileListAdapter(this)
@@ -331,7 +330,7 @@ class FileListFragment : Fragment(), ShowRequestStoragePermissionRationaleDialog
   private class Binding private constructor(
     val root: View,
     val persistentBarLayout: PersistentBarLayout,
-    val appBarLayout:AppBarLayout,
+    val appBarLayout: AppBarLayout,
     val toolbar: Toolbar,
     val overlayToolbar: Toolbar,
     val breadcrumbLayout: BreadcrumbLayout,

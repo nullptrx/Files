@@ -8,9 +8,9 @@ import coil.ImageLoader
 import coil.decode.GifDecoder
 import coil.decode.ImageDecoderDecoder
 import coil.decode.SvgDecoder
-import io.github.nullptrx.files.app.application
-import io.github.nullptrx.files.app.notificationManager
+import io.github.nullptrx.files.example.app.application
 import io.github.nullptrx.files.example.app.backgroundActivityStartNotificationTemplate
+import io.github.nullptrx.files.example.app.notificationManager
 import io.github.nullptrx.files.example.coil.*
 import io.github.nullptrx.files.example.notification.fileJobNotificationTemplate
 import io.github.nullptrx.files.example.notification.ftpServerServiceNotificationTemplate
